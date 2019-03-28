@@ -1,0 +1,430 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.4' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     15138,        420]
+NotebookOptionsPosition[     14904,        407]
+NotebookOutlinePosition[     15238,        422]
+CellTagsIndexPosition[     15195,        419]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"c", "=", "1000"}], "\[IndentingNewLine]", 
+    RowBox[{"lo", "=", ".01"}], "\[IndentingNewLine]", 
+    RowBox[{"hi", "=", "1"}], "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"f", "[", 
+      RowBox[{"x_", ",", " ", "ep_"}], "]"}], ":=", 
+     RowBox[{"Min", "@", 
+      RowBox[{"Select", "[", 
+       RowBox[{
+        RowBox[{"x", "/.", 
+         RowBox[{"NSolve", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{"x", "^", "2"}], " ", "+", " ", 
+             RowBox[{"ep", "*", "x"}], " ", "-", "ep"}], "\[Equal]", "0"}], 
+           ",", "x", ",", " ", "Reals"}], " ", "]"}]}], ",", " ", 
+        "Positive"}], "]"}]}]}], "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"p1", "=", 
+      RowBox[{"Plot3D", "[", 
+       RowBox[{"1", ",", 
+        RowBox[{"{", 
+         RowBox[{"er", ",", "lo", ",", "hi"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"ep", ",", "lo", ",", "er"}], "}"}], ",", 
+        RowBox[{"PlotStyle", "\[Rule]", 
+         RowBox[{"Directive", "[", 
+          RowBox[{"Green", ",", 
+           RowBox[{"Specularity", "[", 
+            RowBox[{"White", ",", "20"}], "]"}], ",", 
+           RowBox[{"Opacity", "[", "0.8", "]"}]}], "]"}]}], ",", 
+        RowBox[{"PlotRange", "\[Rule]", " ", "All"}], ",", " ", 
+        RowBox[{"RegionFunction", "\[Rule]", 
+         RowBox[{"Function", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"er", ",", "ep"}], "}"}], ",", 
+           RowBox[{
+            RowBox[{"er", ">=", 
+             RowBox[{"1", "/", "2"}]}], "&&", 
+            RowBox[{"ep", ">=", 
+             RowBox[{"1", "/", "2"}]}]}]}], "]"}]}]}], "]"}]}], ";"}], "\n", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"p2", "=", 
+      RowBox[{"Plot3D", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", "   ", 
+          RowBox[{
+           RowBox[{"Log", "[", 
+            RowBox[{
+             RowBox[{"f", "[", 
+              RowBox[{"x", ",", " ", "ep"}], "]"}], "*", " ", 
+             RowBox[{"c", "  ", "/", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"f", "[", 
+                 RowBox[{"x", ",", " ", "ep"}], "]"}], "+", " ", "ep"}], 
+               ")"}]}]}], "]"}], "-", " ", 
+           RowBox[{"f", "[", 
+            RowBox[{"x", ",", " ", "ep"}], "]"}]}], " ", ")"}], "/", 
+         RowBox[{"(", " ", 
+          RowBox[{
+           RowBox[{"Log", "[", 
+            RowBox[{"ep", "*", " ", 
+             RowBox[{"c", "  ", "/", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"f", "[", 
+                 RowBox[{"x", ",", " ", "ep"}], "]"}], "+", " ", "ep"}], 
+               ")"}]}]}], "]"}], "-", " ", "ep"}], " ", ")"}]}], ",", 
+        RowBox[{"{", 
+         RowBox[{"er", ",", "lo", ",", "hi"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"ep", ",", "lo", ",", "er"}], "}"}], ",", 
+        RowBox[{"PlotStyle", "\[Rule]", 
+         RowBox[{"Directive", "[", 
+          RowBox[{"Blue", ",", 
+           RowBox[{"Specularity", "[", 
+            RowBox[{"White", ",", "20"}], "]"}], ",", 
+           RowBox[{"Opacity", "[", "0.8", "]"}]}], "]"}]}], ",", " ", 
+        RowBox[{"PlotRange", "\[Rule]", " ", "Full"}], ",", "  ", 
+        RowBox[{"RegionFunction", "\[Rule]", 
+         RowBox[{"Function", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"er", ",", "ep"}], "}"}], ",", " ", 
+           RowBox[{
+            RowBox[{"er", "\[GreaterEqual]", " ", 
+             RowBox[{"f", "[", 
+              RowBox[{"x", ",", " ", "ep"}], "]"}]}], " ", "&&", " ", 
+            RowBox[{"ep", "\[LessEqual]", 
+             RowBox[{"1", "/", "2"}]}]}]}], "]"}]}]}], "]"}]}], ";"}], 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"p3", "=", 
+      RowBox[{"Plot3D", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", "   ", 
+          RowBox[{
+           RowBox[{"Log", "[", 
+            RowBox[{"er", "*", " ", 
+             RowBox[{"c", "  ", "/", 
+              RowBox[{"(", 
+               RowBox[{"er", "+", " ", "ep"}], ")"}]}]}], "]"}], "-", " ", 
+           "er"}], " ", ")"}], "/", 
+         RowBox[{"(", " ", 
+          RowBox[{
+           RowBox[{"Log", "[", 
+            RowBox[{"ep", "*", " ", 
+             RowBox[{"c", "  ", "/", 
+              RowBox[{"(", 
+               RowBox[{"er", "+", " ", "ep"}], ")"}]}]}], "]"}], "-", " ", 
+           "ep"}], " ", ")"}]}], ",", 
+        RowBox[{"{", 
+         RowBox[{"er", ",", "lo", ",", "hi"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"ep", ",", "lo", ",", "er"}], "}"}], ",", 
+        RowBox[{"PlotStyle", "\[Rule]", 
+         RowBox[{"Directive", "[", 
+          RowBox[{"Red", ",", 
+           RowBox[{"Specularity", "[", 
+            RowBox[{"White", ",", "20"}], "]"}], ",", 
+           RowBox[{"Opacity", "[", "0.8", "]"}]}], "]"}]}], ",", 
+        RowBox[{"PlotRange", "\[Rule]", " ", "All"}], ",", 
+        RowBox[{"RegionFunction", "\[Rule]", 
+         RowBox[{"Function", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"er", ",", "ep"}], "}"}], ",", 
+           RowBox[{
+            RowBox[{"!", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"er", ">=", 
+                RowBox[{"1", "/", "2"}]}], "&&", 
+               RowBox[{"ep", ">=", 
+                RowBox[{"1", "/", "2"}]}]}], ")"}]}], " ", "&&", " ", 
+            RowBox[{"!", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"er", "\[GreaterEqual]", " ", 
+                RowBox[{"f", "[", 
+                 RowBox[{"x", ",", "ep"}], "]"}]}], " ", "&&", " ", 
+               RowBox[{"ep", "\[LessEqual]", 
+                RowBox[{"1", "/", "2"}]}]}], ")"}]}]}]}], "]"}]}]}], "]"}]}], 
+     ";"}], "\n", 
+    RowBox[{"Show", "[", 
+     RowBox[{"p1", ",", " ", "p2", ",", "  ", "p3"}], "]"}], 
+    "\[IndentingNewLine]", 
+    RowBox[{"Plot", "[", 
+     RowBox[{
+      RowBox[{"f", "[", 
+       RowBox[{"x", ",", "ep"}], "]"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"ep", ",", " ", "lo", ",", " ", "hi"}], "}"}]}], "]"}], 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"c", "=", "100"}], "\[IndentingNewLine]", 
+    RowBox[{"lo", "=", ".1"}], "\[IndentingNewLine]", 
+    RowBox[{"hi", "=", "10"}], "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"f", "[", 
+      RowBox[{"x_", ",", "ep_"}], "]"}], ":=", 
+     RowBox[{"Min", "@", 
+      RowBox[{"Select", "[", 
+       RowBox[{
+        RowBox[{"x", "/.", 
+         RowBox[{"NSolve", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"x", "+", "ep"}], ")"}], "^", "3"}], "*", "x"}], "-", 
+             
+             RowBox[{"c", "*", 
+              RowBox[{
+               RowBox[{"ep", "^", "2"}], "/", "4"}]}]}], "\[Equal]", "0"}], 
+           ",", "x", ",", " ", "Reals"}], " ", "]"}]}], ",", " ", 
+        "Positive"}], "]"}]}]}], "\[IndentingNewLine]", 
+    RowBox[{"NSolve", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"x", "+", "ep"}], ")"}], "^", "3"}], "*", "x"}], "-", 
+        RowBox[{"c", "*", 
+         RowBox[{
+          RowBox[{"ep", "^", "2"}], "/", "4"}]}]}], "\[Equal]", "0"}], ",", 
+      "x", ",", " ", "Reals"}], " ", "]"}], "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"p1", "=", 
+      RowBox[{"Plot3D", "[", 
+       RowBox[{"1", ",", 
+        RowBox[{"{", 
+         RowBox[{"er", ",", "lo", ",", "hi"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"ep", ",", "lo", ",", "er"}], "}"}], ",", 
+        RowBox[{"PlotStyle", "\[Rule]", 
+         RowBox[{"Directive", "[", 
+          RowBox[{"Green", ",", 
+           RowBox[{"Specularity", "[", 
+            RowBox[{"White", ",", "20"}], "]"}], ",", 
+           RowBox[{"Opacity", "[", "0.8", "]"}]}], "]"}]}], ",", 
+        RowBox[{"PlotRange", "\[Rule]", " ", "All"}], ",", " ", 
+        RowBox[{"RegionFunction", "\[Rule]", 
+         RowBox[{"Function", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"er", ",", "ep"}], "}"}], ",", 
+           RowBox[{
+            RowBox[{"er", ">=", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"c", "/", "32"}], ")"}], "^", 
+               RowBox[{"(", 
+                RowBox[{"1", "/", "2"}], ")"}]}], ")"}]}], "&&", 
+            RowBox[{"ep", ">=", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"c", "/", "32"}], ")"}], "^", 
+               RowBox[{"(", 
+                RowBox[{"1", "/", "2"}], ")"}]}], ")"}]}]}]}], "]"}]}]}], 
+       "]"}]}], ";"}], "\n", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"p2", "=", 
+      RowBox[{"Plot3D", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"f", "[", 
+               RowBox[{"x", ",", " ", "ep"}], "]"}], "*", " ", 
+              RowBox[{"c", "  ", "/", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"f", "[", 
+                  RowBox[{"x", ",", "ep"}], "]"}], "+", " ", "ep"}], 
+                ")"}]}]}], ")"}], "^", 
+            RowBox[{"(", 
+             RowBox[{"1", "/", "2"}], ")"}]}], "-", " ", 
+           RowBox[{"f", "[", 
+            RowBox[{"x", ",", "ep"}], "]"}]}], " ", ")"}], "/", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"ep", "*", " ", 
+              RowBox[{"c", "  ", "/", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"f", "[", 
+                  RowBox[{"x", ",", " ", "ep"}], "]"}], "+", " ", "ep"}], 
+                ")"}]}]}], ")"}], "^", 
+            RowBox[{"(", 
+             RowBox[{"1", "/", "2"}], ")"}]}], "-", " ", "ep"}], " ", ")"}]}],
+         ",", 
+        RowBox[{"{", 
+         RowBox[{"er", ",", "lo", ",", "hi"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"ep", ",", "lo", ",", "er"}], "}"}], ",", 
+        RowBox[{"PlotStyle", "\[Rule]", 
+         RowBox[{"Directive", "[", 
+          RowBox[{"Blue", ",", 
+           RowBox[{"Specularity", "[", 
+            RowBox[{"White", ",", "20"}], "]"}], ",", 
+           RowBox[{"Opacity", "[", "0.8", "]"}]}], "]"}]}], ",", " ", 
+        RowBox[{"PlotRange", "\[Rule]", " ", "All"}], ",", "  ", 
+        RowBox[{"RegionFunction", "\[Rule]", 
+         RowBox[{"Function", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"er", ",", "ep"}], "}"}], ",", " ", 
+           RowBox[{
+            RowBox[{"er", "\[GreaterEqual]", " ", 
+             RowBox[{"f", "[", 
+              RowBox[{"x", ",", " ", "ep"}], "]"}]}], "&&", " ", 
+            RowBox[{"ep", "\[LessEqual]", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"c", "/", "32"}], ")"}], "^", 
+               RowBox[{"(", 
+                RowBox[{"1", "/", "2"}], ")"}]}], ")"}]}]}]}], "]"}]}]}], 
+       "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"p3", "=", 
+      RowBox[{"Plot3D", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"er", "*", " ", 
+             RowBox[{"c", "  ", "/", 
+              RowBox[{"(", 
+               RowBox[{"er", "+", " ", "ep"}], ")"}]}]}], ")"}], "^", 
+           RowBox[{"(", 
+            RowBox[{"1", "/", "2"}], ")"}]}], "-", " ", "er"}], " ", ")"}], 
+        "/", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"ep", "*", " ", 
+             RowBox[{"c", "  ", "/", 
+              RowBox[{"(", 
+               RowBox[{"er", "+", " ", "ep"}], ")"}]}]}], ")"}], "^", 
+           RowBox[{"(", 
+            RowBox[{"1", "/", "2"}], ")"}]}], "-", " ", "ep"}], " ", 
+         ")"}]}]}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"er", ",", "lo", ",", "hi"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"ep", ",", "lo", ",", "er"}], "}"}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"Directive", "[", 
+       RowBox[{"Red", ",", 
+        RowBox[{"Specularity", "[", 
+         RowBox[{"White", ",", "20"}], "]"}], ",", 
+        RowBox[{"Opacity", "[", "0.8", "]"}]}], "]"}]}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", " ", "All"}], ",", 
+     RowBox[{"RegionFunction", "\[Rule]", 
+      RowBox[{"Function", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"er", ",", "ep"}], "}"}], ",", 
+        RowBox[{
+         RowBox[{"!", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"er", ">=", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"c", "/", "32"}], ")"}], "^", 
+               RowBox[{"(", 
+                RowBox[{"1", "/", "2"}], ")"}]}], ")"}]}], "&&", 
+            RowBox[{"ep", ">=", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"c", "/", "32"}], ")"}], "^", 
+               RowBox[{"(", 
+                RowBox[{"1", "/", "2"}], ")"}]}], ")"}]}]}], ")"}]}], " ", "&&",
+          " ", 
+         RowBox[{"!", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"er", "\[GreaterEqual]", 
+             RowBox[{"f", "[", 
+              RowBox[{"x", ",", " ", "ep"}], "]"}]}], " ", "&&", " ", 
+            RowBox[{"ep", "\[LessEqual]", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"c", "/", "32"}], ")"}], "^", 
+               RowBox[{"(", 
+                RowBox[{"1", "/", "2"}], ")"}]}], ")"}]}]}], ")"}]}]}]}], 
+       "]"}]}]}]}], "]"}], ";"}], "\n", 
+ RowBox[{"Show", "[", 
+  RowBox[{"p1", ",", " ", "p2", ",", " ", "p3"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"f", "[", 
+    RowBox[{"x", ",", "ep"}], "]"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"ep", ",", " ", "lo", ",", " ", "hi"}], "}"}]}], 
+  "]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.6751822071471243`*^9, 3.675182223064831*^9}}]
+},
+WindowSize->{1366, 744},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.4 for Linux x86 (64-bit) (April 11, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 14342, 385, 803, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
